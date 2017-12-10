@@ -1,0 +1,49 @@
+.question,.answers{
+	width: 100%;
+	margin-bottom: 10px;
+	
+}
+
+.question{
+	min-height: 200px;
+	border-bottom: 1px solid gray;
+}	
+
+.ask-user,.answer-user{
+	width: 18%;
+	background: red;
+	height: 100px;
+}
+
+.question-con,.answer-detail{
+	width: 82%;
+}
+
+.question-title{
+	height: 40px;
+	border-bottom: 1px solid gray;
+	margin-bottom: 5px;
+	font-weight: 700;
+}
+
+.question-detail{
+	padding-bottom: 10px;
+	text-indent: 10px;
+}
+
+.answer-con{
+	border-bottom: 1px solid gray;
+}
+
+.answer-form textarea{
+	float: left;
+	width: 89%;
+}
+
+.answer-form .answer-sub{
+	margin-top: 114px;
+	float: right;
+	padding: 10px;
+	background: #3385ff;
+	color: #fff; 
+}

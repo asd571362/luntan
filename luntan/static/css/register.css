@@ -1,0 +1,77 @@
+.tips{
+	height: 26px;
+	width: 100%;
+	font-size: 12px;
+	color: red;
+	text-align: center;
+}
+.register-con{
+	width: 320px;
+	height: 350px;
+	margin: 100px auto 0 auto;
+	border: 1px solid gray;
+}
+
+.register-tab{
+	height: 40px;
+}
+
+.register-tab li{
+	text-align: center;
+	line-height: 40px;
+	font-size: 16px;
+	font-weight: 700px;
+	width: 50%;
+	background: #3385ff;
+	color: #fff;
+	cursor: pointer;
+}
+
+.register-tab .active{
+	background: #317ef3;
+}
+
+.form-left{
+	text-align: right;
+	width: 35%;
+	height: 40px;
+}
+
+.form-right{
+	text-align: left;
+	width: 65%;
+	height: 40px;
+}
+
+/*登录表单*/
+.login-form{
+	width: 100%;
+	margin-top: 40px;
+
+}
+.login-form input{
+	height: 30px;
+	width: 160px;
+}
+
+.login-form tr{
+	width: 100%;
+	line-height: 40px;
+}
+
+/*注册表单*/
+
+.register-form{
+	margin-top: 15px;
+	width: 100%;
+	display: none;
+}
+
+.register-form input{
+	height: 30px;
+	width: 160px;
+}
+
+.register-form tr{
+	width: 100%;
+}

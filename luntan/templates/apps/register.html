@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>学习论坛</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/register.css">
+	<script src="js/jquery-1.12.4.min.js"></script>
+	<script src="js/register.js"></script>
+</head>
+<body>
+	<!-- 头部 -->
+	<div class="header">
+		<div class="content">
+			<div class="header-left left">
+				<span class="logo left">学习论坛</span>
+				<form action="#" class="search right clearfix">
+					<input type="text" class="search-text left">
+					<input type="submit" class="search-submit right" value="搜 索">
+				</form>
+			</div>
+			<div class="header-right right">
+				<a href="" class="ask-btn">提问</a>
+				<a href="" class="user-info">登陆/注册</a>
+			</div>
+		</div>
+	</div>
+	<!-- 占位 -->
+	<div class="stand"></div>
+	<!-- 主体 -->
+	<div class="content main clearfix">
+		<div class="register-con">
+			<ul class="register-tab clearfix">
+				<li class="left active">登录</li>
+				<li class="left">注册</li>
+			</ul>
+			<!-- 登录表单 -->
+			<div class="form-con">
+				<form action="#" class="login-form">
+					<table>
+						<tbody>
+							<tr>
+								<td class="form-left">用户名：</td>
+								<td class="form-right">
+									<input type="text" name="usename" id="login_usename">
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2"  class="tips">	
+									<!-- 用户名或密码错误！ -->
+								</td>
+							</tr>
+							<tr>
+								<td class="form-left">密码：</td>
+								<td class="form-right"><input type="password" name="pwd" id="login_pwd"></td>
+							</tr>
+							<tr>
+								<td colspan="2"  class="tips">	
+									<!-- 用户名或密码错误！ -->
+								</td>
+							</tr>
+							<tr>
+								<td class="form-left"></td>
+								<td class="form-right"><input type="submit" value="登 录" ></td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+
+				<!-- 注册表单 -->
+				<form action="#" class="register-form">
+					<table>
+						<tbody>
+							<tr>
+								<td class="form-left">用户名：</td>
+								<td class="form-right">
+									<input type="text" name="usename" id="re_usename">
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2"  class="tips" id="username_tip">	
+									<!-- 只能包含字母、数字、'_',且必须以字母开头,长度8-20位! -->
+								</td>
+							</tr>
+							<tr>
+								<td class="form-left">密码：</td>
+								<td class="form-right">
+									<input type="password" name="re_pwd" id="re_pwd">	
+								</td>	
+							</tr>
+							<tr>
+								<td colspan="2"  class="tips" id="pwd_tip">									
+									<!-- 只能包含字母、数字、'_',且必须以字母开头,长度8-20位！ -->
+								</td>
+							</tr>
+							<tr>
+								<td class="form-left">确认密码：</td>
+								<td class="form-right">
+									<input type="password" name="re_cpwd" id="re_cpwd">
+								</td>							
+							</tr>
+							<tr>
+								<td colspan="2"  class="tips" id="cpwd_tip">									
+									<!-- 两次密码不一致！ -->
+								</td>
+							</tr>
+							<!-- <tr>
+								<td class="form-left">邮箱：</td>
+								<td class="form-right"><input type="text"  name="eAddr" id="eAddr"></td>
+							</tr> -->
+							<tr>
+								<td class="form-left"></td>
+								<td class="form-right"><input type="submit" value="注 册"></td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+			</div>
+		</div>
+	
+	</div>
+	<!-- 底部 -->
+	<div class="footer">
+		......................
+	</div>
+</body>
+</html>

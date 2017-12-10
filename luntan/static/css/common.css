@@ -1,0 +1,152 @@
+/*样式重置*/
+
+body,h1,h2,h3,h4,h5,h6,ul,p,input,textarea{
+	margin: 0;
+	padding: 0;
+	color: black;
+}
+
+ul{
+	list-style: none;
+}
+
+a{
+	text-decoration: none;
+	color: gray;
+}
+
+input{
+	box-sizing: border-box;
+}
+textarea{
+	resize: none;
+}
+
+tbody,table{
+	width: 100%;
+}
+/*通用样式*/
+.content{
+	width: 80%;
+	margin: 0 auto;
+}
+
+.left{
+	float: left;
+}
+
+.right{
+	float: right;
+}
+
+.clearfix::after,.clearfix::before{
+	content: "";
+	display: table;
+}
+
+.clearfix::after{
+	clear: both;
+}
+
+.clear{
+	zoom:1;
+}
+
+
+.footer{
+	text-align: center;
+}
+
+/*头部*/
+.header{
+	width: 100%;
+	height: 60px;
+	position: fixed;
+	left: 0;
+	top: 0;
+	border-bottom: 1px solid gray;
+	background: #fff;
+}
+
+.stand{
+	margin-bottom: 10px;
+}
+
+/*logo 和搜索*/
+.header-left{
+	width: 70%;
+	height: 60px;
+	line-height: 60px;
+	text-indent: 20px;
+	color: blue;
+	font-weight: 700;
+	font-size: 28px;
+}
+
+/*logo */
+
+/*搜索 */
+.search{
+	margin-right: 20px;
+	margin-top: 15px;
+	width: 50%;
+}
+
+.search-text,.search-submit{
+	display: inline-block;
+	height: 30px;
+}
+
+.search-text{
+	text-indent: 10px;
+	box-sizing: border-box;
+	border: 1px solid gray;
+	width: 75%;
+}
+
+.search-submit{
+	width: 24%;
+	background: #3385ff;
+	color: #fff;
+	cursor: pointer;
+	margin-left: 1px;
+	border: none;
+}
+
+/*提问、注册 */
+.header-right{
+	height: 60px;
+	line-height: 60px;
+}
+
+.ask-btn,.user-info{
+	padding: 8px;
+	color: #fff;
+	background: #3385ff;
+}
+
+.stand{
+	height: 60px;
+	width: 100%;
+}
+
+
+/*主体区*/
+.main{
+	min-height: 500px;
+}
+
+/*主体左区*/
+.main-left{
+	width: 68%;
+}
+
+/*侧栏区*/
+.main-right{
+	width: 30%;
+}
+
+
+.daily-bonus{
+	height: 60px;
+}
