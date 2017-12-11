@@ -4,6 +4,9 @@ from .models import UserInfo, QuestionInfo, AnswerInfo
 import re,hashlib
 
 # Create your views here.
+def index(request):
+    return render(request, 'apps/index.html')
+
 def register(request):
     return render(request,'apps/register.html')
 
@@ -53,3 +56,30 @@ def register_post(request):
     else:
         return HttpResponse('数据错误')
 
+def login_post(request):
+    post = request.POST
+
+    post_name = post.get('post_name')
+    post_pwd = post.get('post_pwd')
+    post_type = post.get('post_type')
+    print(post_name)
+    print(post_pwd)
+    # 密码加密
+    post_pwd = post_pwd.encode()
+    sha1 = hashlib.sha1()
+    sha1.update(post_pwd)
+    sha1_pwd = sha1.hexdigest()
+
+    # 核对用户名和密码
+    users = UserInfo.objects.filter(user_name=post_name)
+    print(sha1_pwd)
+    print(users)
+
+    if post_type:
+        if len(users) == 1:
+            if users[0].user_pwd == sha1_pwd:
+                return JsonResponse({'log_vf': True})
+        else:
+            return JsonResponse({'log_vf':False})
+    else:
+        render(request,'apps/index.html')

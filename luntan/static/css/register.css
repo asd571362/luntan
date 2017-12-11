@@ -66,7 +66,7 @@
 	display: none;
 }
 
-.register-form input,#reg_submit{
+.register-form input,#reg_submit,#log_submit{
 	height: 30px;
 	width: 160px;
 }

@@ -15,7 +15,7 @@
 			</ul>
 			<!-- 登录表单 -->
 			<div class="form-con">
-				<form action="login_post" class="login-form" method="post">
+				<form action="login_post/" class="login-form" method="post">
 					<table>
 						<tbody>
 							<tr>
@@ -26,7 +26,6 @@
 							</tr>
 							<tr>
 								<td colspan="2"  class="tips">
-									<!-- 用户名或密码错误！ -->
 								</td>
 							</tr>
 							<tr>
@@ -34,13 +33,13 @@
 								<td class="form-right"><input type="password" name="pwd" id="login_pwd"></td>
 							</tr>
 							<tr>
-								<td colspan="2"  class="tips">
+								<td colspan="2"  class="tips" id="login_tip">
 									<!-- 用户名或密码错误！ -->
 								</td>
 							</tr>
 							<tr>
 								<td class="form-left"></td>
-								<td class="form-right"><input type="submit" value="登 录" ></td>
+                                <td class="form-right"><button type="button" id="log_submit">登 陆</button></td>
 							</tr>
 						</tbody>
 					</table>

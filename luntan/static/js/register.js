@@ -14,6 +14,7 @@ $(function () {
 		$.ajax({
 			'url':'uname_re_vf/',
 			'type':'post',
+			'async':false,
 			'data':post_name,
 			'dataType':'json'
 		}).done(function (dat) {
@@ -91,7 +92,43 @@ $(function () {
 
 
 	// 登录表单验证
-	
+	var log_vf = false;
+	function log_ajax() {
+		var post_info = {
+			'post_name':$login_usename.val(),
+			'post_pwd':$login_pwd.val(),
+			'post_type':'ajax',
+						};
+
+		$.ajax({
+			'url':'login_post/',
+			'async':false,
+			'type':'post',
+			'data':post_info,
+			'dataType':'json'
+		}).done(function (dat) {
+			if(dat.log_vf == false){
+				$('#login_tip').html("用户名或密码错误")
+			}else {
+				log_vf = true;
+				$('#login_tip').html("")
+			}
+
+		}).fail(function () {
+			$username_tip.html("连接服务器失败！");
+		})
+    }
+
+    var $login_usename = $('#login_usename'),
+		$login_pwd = $('#login_pwd');
+
+	$('#log_submit').click(function () {
+		log_ajax();
+		if (log_vf){
+			alert("登陆成功！");
+			window.location.href = '/index';
+		}
+	})
 
 
 
