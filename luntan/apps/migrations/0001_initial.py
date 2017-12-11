@@ -13,14 +13,14 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='AnswerInfo',
             fields=[
-                ('id', models.AutoField(serialize=False, auto_created=True, verbose_name='ID', primary_key=True)),
+                ('id', models.AutoField(auto_created=True, serialize=False, verbose_name='ID', primary_key=True)),
                 ('a_content', models.CharField(max_length=1500)),
             ],
         ),
         migrations.CreateModel(
             name='QuestionInfo',
             fields=[
-                ('id', models.AutoField(serialize=False, auto_created=True, verbose_name='ID', primary_key=True)),
+                ('id', models.AutoField(auto_created=True, serialize=False, verbose_name='ID', primary_key=True)),
                 ('q_title', models.CharField(max_length=20)),
                 ('q_content', models.CharField(max_length=500)),
             ],
@@ -28,12 +28,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='UserInfo',
             fields=[
-                ('id', models.AutoField(serialize=False, auto_created=True, verbose_name='ID', primary_key=True)),
+                ('id', models.AutoField(auto_created=True, serialize=False, verbose_name='ID', primary_key=True)),
                 ('user_name', models.CharField(max_length=20)),
                 ('user_pwd', models.CharField(max_length=20)),
-                ('user_email', models.CharField(default='', max_length=50)),
-                ('nickname', models.CharField(default='', max_length=20)),
-                ('user_avatar', models.ImageField(default='', upload_to='')),
+                ('user_email', models.CharField(max_length=50, default='')),
+                ('nickname', models.CharField(max_length=20, default='')),
+                ('user_avatar', models.ImageField(upload_to='', default='')),
             ],
         ),
         migrations.AddField(

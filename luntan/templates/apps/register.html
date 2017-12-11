@@ -15,7 +15,7 @@
 			</ul>
 			<!-- 登录表单 -->
 			<div class="form-con">
-				<form action="#" class="login-form">
+				<form action="login_post" class="login-form" method="post">
 					<table>
 						<tbody>
 							<tr>
@@ -47,13 +47,13 @@
 				</form>
 
 				<!-- 注册表单 -->
-				<form action="#" class="register-form">
+				<form action="register_post/" class="register-form" method="post">
 					<table>
 						<tbody>
 							<tr>
 								<td class="form-left">用户名：</td>
 								<td class="form-right">
-									<input type="text" name="usename" id="re_usename">
+									<input type="text" name="re_usename" id="re_usename">
 								</td>
 							</tr>
 							<tr>
@@ -89,7 +89,7 @@
 							</tr> -->
 							<tr>
 								<td class="form-left"></td>
-								<td class="form-right"><input type="submit" value="注 册"></td>
+								<td class="form-right"><button type="button" id="reg_submit">注 册</button></td>
 							</tr>
 						</tbody>
 					</table>
