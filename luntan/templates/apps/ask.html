@@ -1,53 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>学习论坛</title>
-	<link rel="stylesheet" href="css/common.css">
-	<link rel="stylesheet" href="css/ask.css">
-</head>
-<body>
-	<!-- 头部 -->
-	<div class="header">
-		<div class="content">
-			<div class="header-left left">
-				<span class="logo left">学习论坛</span>
-				<form action="#" class="search right clearfix">
-					<input type="text" class="search-text left">
-					<input type="submit" class="search-submit right" value="搜 索">
-				</form>
-			</div>
-			<div class="header-right right">
-				<a href="" class="ask-btn">提问</a>
-				<a href="" class="user-info">登陆/注册</a>
-			</div>
-		</div>
-	</div>
-	<!-- 占位 -->
-	<div class="stand"></div>
-	<!-- 主体 -->
-	<div class="content main">
-		<div class="main-left left">
-			<form action="#" method="post">
-				<input type="text" class="q-title">
-				<textarea name="" id="" cols="30" rows="10" class="q-detail"></textarea>
-				<br>
-				<input type="submit" class="q-submit">
-			</form>
+{% extends 'apps/basebody.html' %}
 
-		</div>
-
-		<!-- 主体右侧 -->
-		<div class="main-right right">
-			<div class="daily-bonus">
-				右侧内容，待添加...........
-			</div>
-		</div>
-	
-	</div>
-	<!-- 底部 -->
-	<div class="footer">
-		......................
-	</div>
-</body>
-</html>
+{% block main_left %}
+    <form action="#" method="post">
+        <input type="text" class="q-title">
+        <textarea name="" id="" cols="30" rows="10" class="q-detail"></textarea>
+        <br>
+        <input type="submit" class="q-submit">
+    </form>
+{% endblock main_left %}

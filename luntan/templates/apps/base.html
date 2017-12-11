@@ -1,0 +1,43 @@
+{% block head %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ page_title }}</title>
+        <link rel="stylesheet" href="/static/css/common.css">
+        <script src="/static/js/jquery-1.12.4.min.js"></script>
+        {% block link %}
+        {% endblock link %}
+    </head>
+    <body>
+        <!-- 头部 -->
+        <div class="header">
+            <div class="content">
+                <div class="header-left left">
+                    <span class="logo left">学习论坛</span>
+                    <form action="#" class="search right clearfix">
+                        <input type="text" class="search-text left">
+                        <input type="submit" class="search-submit right" value="搜 索">
+                    </form>
+                </div>
+                <div class="header-right right">
+                    <a href="" class="ask-btn">提问</a>
+                    <a href="" class="user-info">登陆/注册</a>
+                </div>
+            </div>
+        </div>
+        <!-- 占位 -->
+        <div class="stand"></div>
+{% endblock head %}
+
+{% block main %}
+{% endblock main %}
+
+{% block footer %}
+    	<!-- 底部 -->
+        <div class="footer">
+            powerby 键盘侠 K_MAN
+        </div>
+    </body>
+    </html>
+{% endblock footer %}
