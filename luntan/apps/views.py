@@ -83,3 +83,7 @@ def login_post(request):
             return JsonResponse({'log_vf':False})
     else:
         render(request,'apps/index.html')
+
+
+def ask(request):
+    return render(request, 'apps/ask.html')

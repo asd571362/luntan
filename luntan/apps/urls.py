@@ -2,7 +2,9 @@ from django.conf.urls import url
 from apps import views
 
 urlpatterns = [
+    url(r'^$', views.index),
     url(r'^index/$', views.index),
+    url(r'^ask/$', views.ask),
     url(r'^register/$', views.register),
     url(r'^register/register_post/$', views.register_post),
     url(r'^register/uname_re_vf/$', views.uname_re_vf),
