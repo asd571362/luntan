@@ -1,19 +1,39 @@
 {% extends 'apps/base.html' %}
 
+{% block link %}
+    <script src="/static/js/common.js"></script>
+    {% block bodylink %}
+    {% endblock bodylink %}
+{% endblock link %}
+
 {% block main %}
     <!-- 主体 -->
-	<div class="content main">
-		<div class="main-left left">
+	<div class="content main clearfix">
+		<div class="main-left left ">
             {% block main_left %}{% endblock main_left %}
 		</div>
 
 		<!-- 主体右侧 -->
 		<div class="main-right right">
-            <div class="daily-bonus">
-            右侧内容，待添加...........
+            <div class="time-show">
+                <h3>北京时间</h3>
+                <h3 class="time-date"></h3>
+                <h3 class="time-time"></h3>
+            </div>
+            <div class="notice-board" >
+                <h2>公告栏</h2>
+                <p>
+                   待完善内容：<br>
+                    1.搜索功能<br>
+                    2.个人中心<br>
+                    3.分页显示<br>
+                    4.富文本上传及显示<br>
+                    5.页面过于丑陋的问题
+                </p>
+
             </div>
 		</div>
 
 	</div>
 {% endblock main %}
-
+<script src="/static/js/common.js"></script>

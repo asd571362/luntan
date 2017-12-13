@@ -55,6 +55,9 @@ tbody,table{
 
 .footer{
 	text-align: center;
+	height: 60px;
+	line-height: 60px;
+	border-top: 1px solid darkgray;
 }
 
 /*头部*/
@@ -119,7 +122,7 @@ tbody,table{
 	line-height: 60px;
 }
 
-.ask-btn,.user-info,.index-link{
+.ask-btn,.user-info,.index-link,.reg-login{
 	padding: 8px;
 	color: #fff;
 	background: #3385ff;
@@ -134,6 +137,7 @@ tbody,table{
 /*主体区*/
 .main{
 	min-height: 500px;
+	margin-bottom: 50px;
 }
 
 /*主体左区*/
@@ -144,9 +148,15 @@ tbody,table{
 /*侧栏区*/
 .main-right{
 	width: 30%;
+
 }
 
 
-.daily-bonus{
-	height: 60px;
+
+.notice-board,.time-show{
+	background: #f0f0f0;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 50px;
+	margin-top: 10px;
 }

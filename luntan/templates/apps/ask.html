@@ -1,11 +1,11 @@
 {% extends 'apps/basebody.html' %}
-{% block link %}
+{% block bodylink %}
     <link rel="stylesheet" href="/static/css/ask.css">
-{% endblock link %}
+{% endblock bodylink %}
 {% block main_left %}
-    <form action="#" method="post">
-        <input type="text" class="q-title">
-        <textarea name="" id="" cols="30" rows="10" class="q-detail"></textarea>
+    <form action="ask_post" method="post">
+        <input type="text" class="q-title" name="q_title" maxlength="50" autocomplete="off">
+        <textarea name="q_content" id="" cols="30" rows="10" class="q-detail" maxlength="1500"></textarea>
         <br>
         <input type="submit" class="q-submit">
     </form>

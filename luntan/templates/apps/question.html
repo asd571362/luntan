@@ -1,7 +1,7 @@
 {% extends 'apps/basebody.html' %}
-{% block link %}
+{% block bodylink %}
     <link rel="stylesheet" href="/static/css/question.css">
-{% endblock link %}
+{% endblock bodylink %}
 	<!-- 动态区 -->
 	<!-- <div class="dynamics content">
 		<ul class="dynamics-title">
@@ -21,30 +21,35 @@
 	    {% block main_left %}
 			<!-- 问题详情 -->
 			<div class="question clearfix">
-				<div class="ask-user left">用户信息</div>
+
+				<div class="ask-user left">{{ q_username }}</div>
 				<div class="question-con left">
-					<div class="question-title">问题标题</div>
-					<div class="question-detail">问题内容</div>
+					<div class="question-title">{{ q_title }}</div>
+					<div class="question-detail">{{ q_content }}</div>
 				</div>
 
 			</div>
 
 			<!-- 回答详情 -->
 			<div class="answers">
-				<div class="answer-con clearfix">
-					<div class="answer-user left">回答者</div>
-					<div class="answer-detail left">回答详细</div>
-				</div>
-				<div class="answer-con clearfix">
-					<div class="answer-user left">回答者</div>
-					<div class="answer-detail left">回答详细</div>
-				</div>
+                {% if answers %}
+                    {% for answer in answers %}
+                        <div class="answer-con clearfix">
+                            <div class="answer-user left">{{ answer.a_user.user_name }}</div>
+                            <div class="answer-detail left">{{ answer.a_content }}</div>
+                        </div>
+                    {% endfor %}
+                {% else%}
+                    <div>暂时还没有人回复，您可以在下方进行回复！</div>
+                {% endif %}
 			</div>
 
 			<!-- 回答内容 -->
-			<form action="#" class="answer-form">
-				<textarea name="" id="" cols="30" rows="10"></textarea>
+			<form action="answer_post" class="answer-form clearfix" method="post">
+
+				<textarea name="a_content" id="a_content" cols="30" rows="10" maxlength="1500"></textarea>
 				<input type="submit" value="回 复" class="answer-sub">
+                <input type="hidden" name="q_id" value="{{ q_id }}">
 			</form>
 
         {% endblock main_left %}

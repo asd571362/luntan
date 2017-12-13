@@ -3,12 +3,39 @@ from django.http import HttpResponse,JsonResponse,HttpResponseRedirect
 from .models import UserInfo, QuestionInfo, AnswerInfo
 import re,hashlib
 
-# Create your views here.
-def index(request):
-    return render(request, 'apps/index.html')
 
+#是否登陆
+def is_login(request,temPath):
+    username = request.session.get('username')
+    if username:
+        context = {'username': username}
+        return render(request, temPath, context)
+    return render(request, temPath)
+
+#首页页面
+def index(request):
+    temPath = 'apps/index.html'
+    username = request.session.get('username')
+    questions = QuestionInfo.objects.all()
+
+    if username:
+        context = {'username': username,
+                   'questions':questions}
+    else:
+        context = {'questions': questions}
+
+    return render(request, temPath, context)
+
+
+#注册页面
 def register(request):
-    return render(request,'apps/register.html')
+    temPath = 'apps/register.html'
+    username = request.session.get('username')
+    if username:
+        context = {'username': username}
+        return render(request, temPath, context)
+    return render(request, temPath)
+
 
 # 重名检测
 def uname_re_vf(request):
@@ -56,6 +83,8 @@ def register_post(request):
     else:
         return HttpResponse('数据错误')
 
+
+# 登陆验证
 def login_post(request):
     post = request.POST
 
@@ -75,15 +104,106 @@ def login_post(request):
     print(sha1_pwd)
     print(users)
 
-    if post_type:
+    if post_type:  #ajax 验证
         if len(users) == 1:
             if users[0].user_pwd == sha1_pwd:
+                request.session['username'] = users[0].user_name
+                request.session.set_expiry(3*24*3600)
                 return JsonResponse({'log_vf': True})
         else:
             return JsonResponse({'log_vf':False})
-    else:
+    else: #非正常提交，返回首页
         render(request,'apps/index.html')
 
+# 退出登陆
+def logout(request):
+    request.session.clear()
+    return HttpResponseRedirect('/')
 
+# 提问页面
 def ask(request):
-    return render(request, 'apps/ask.html')
+    temPath = 'apps/ask.html'
+    ret = is_login(request,temPath)
+    return ret
+
+# 问题提交
+def ask_post(request):
+    dict = request.POST
+    uername = request.session.get('username')
+    print(uername)
+    if uername:
+        user = UserInfo.objects.get(user_name=uername)
+        print(user)
+        question = QuestionInfo()
+        question.q_title= dict.get('q_title')
+        question.q_content = dict.get('q_content')
+        question.q_user = user
+        question.save()
+        context={'tip':'发布成功！'}
+
+    else:
+        context = {'tip': '您未登陆,请先登陆！'}
+
+    return render(request, 'apps/q_post_re.html', context)
+
+# 问题详情页面
+def question(request,q_id):
+    q = QuestionInfo.objects.get(id=q_id)
+    username = request.session.get('username')
+    if q:
+        answers = q.answerinfo_set.all()
+        context = {
+            'q_username':q.q_user.user_name,
+            'q_title':q.q_title,
+            'q_content':q.q_content,
+            'answers':answers,
+            'q_id':q_id,
+            'username':username
+        }
+        return render(request,'apps/question.html',context)
+    else:
+        context = {'tip':'问题不存在！'}
+        return render(request,'apps/q_post_re.html',context)
+
+# 回答提交
+def answer_post(request):
+    dict = request.POST
+    uername = request.session.get('username')
+    q_id = dict.get('q_id')
+    print(q_id)
+    q = QuestionInfo.objects.get(id=q_id)
+
+    if uername:
+        user = UserInfo.objects.get(user_name=uername)
+        answer = AnswerInfo()
+        answer.a_content = dict.get('a_content')
+        answer.a_user = user
+        answer.a_question = q
+
+        answer.save()
+        # context={'tip':'发布成功！'}
+        return HttpResponseRedirect('/question/%s' % q_id)
+    else:
+        context = {'tip': '您未登陆,请先登陆！'}
+        return render(request, 'apps/q_post_re.html', context)
+
+# 搜索功能
+def search(request):
+    dict = request.GET
+    kw = dict.get('kw')
+    if kw:
+        questions = QuestionInfo.objects.filter(q_title__contains=kw)
+        username = request.session.get('username')
+        if username:
+            context = {'username': username,
+                       'questions': questions}
+        else:
+            context = {'questions': questions}
+
+        return render(request, 'apps/index.html', context)
+
+    return HttpResponseRedirect('/')
+
+# test页面
+def setcook(request):
+    return

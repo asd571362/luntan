@@ -9,21 +9,30 @@
 	border-bottom: 1px solid gray;
 }	
 
+.ask-user{
+	min-height: 200px;
+}
 .ask-user,.answer-user{
 	width: 18%;
-	background: red;
-	height: 100px;
+	background:rgba(159, 181, 199, 0.5);
+	text-align: center;
+	line-height: 40px;
+
 }
 
 .question-con,.answer-detail{
 	width: 82%;
+	text-indent: 10px;
 }
+
+
 
 .question-title{
 	height: 40px;
 	border-bottom: 1px solid gray;
 	margin-bottom: 5px;
 	font-weight: 700;
+	text-indent: 10px;
 }
 
 .question-detail{
@@ -33,6 +42,7 @@
 
 .answer-con{
 	border-bottom: 1px solid gray;
+	margin-bottom: 10px;
 }
 
 .answer-form textarea{
@@ -40,10 +50,11 @@
 	width: 89%;
 }
 
-.answer-form .answer-sub{
+.answer-sub{
+	display: inline-block;
 	margin-top: 114px;
 	float: right;
-	padding: 10px;
+	width: 10%;
 	background: #3385ff;
-	color: #fff; 
+	color: #fff;
 }

@@ -1,7 +1,9 @@
 {% extends 'apps/basebody.html' %}
-{% block link %}
+
+{% block bodylink %}
     <link rel="stylesheet" href="/static/css/index.css">
-{% endblock link %}
+{% endblock bodylink %}
+
 	<!-- 动态区 -->
 	<!-- <div class="dynamics content">
 		<ul class="dynamics-title">
@@ -19,18 +21,19 @@
 	</div> -->
 	<!-- 主体 -->
 	    {% block main_left %}
-			<ul class="question-con">
-				<li>
-					<div class="qc-user left">info</div>
-					<div class="qc-q left"></div>
-				</li>
-			</ul>
-			<ul class="question-con">
-				<li>
-					<div class="qc-user left">info</div>
-					<div class="qc-q left"></div>
-				</li>
-			</ul>
+
+            {% for question in questions %}
+                <ul class="question-con">
+                    <li>
+                        <div class="qc-user left">{{ question.q_user.user_name }}</div>
+                        <div class="qc-q left">
+                            <a href="/question/{{ question.id }}">{{ question.q_title }}</a>
+                        </div>
+                    </li>
+                </ul>
+            {% endfor %}
+
+
         {% endblock main_left %}
 
 

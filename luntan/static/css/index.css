@@ -38,8 +38,15 @@
 }
 
 .qc-user{
-	width: 80px;
+	width: 100px;
 	height: 40px;
-	background: gray;
+	background:rgba(159, 181, 199, 0.5);
+	line-height: 40px;
+	text-align: center;
 }
 
+.qc-q{
+	height: 40px;
+	line-height: 40px;
+	text-indent: 10px;
+}

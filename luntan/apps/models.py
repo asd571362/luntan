@@ -13,8 +13,8 @@ class UserInfo(models.Model):
 
 
 class QuestionInfo(models.Model):
-    q_title = models.CharField(max_length=20)
-    q_content = models.CharField(max_length=500)
+    q_title = models.CharField(max_length=200)
+    q_content = models.CharField(max_length=1500)
     # q_date = models.DateTimeField(default=timezone.now)
     q_user = models.ForeignKey(UserInfo)
 

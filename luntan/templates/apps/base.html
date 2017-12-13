@@ -1,6 +1,6 @@
-{% block head %}
-    <!DOCTYPE html>
+<!DOCTYPE html>
     <html lang="en">
+{% block head %}
     <head>
         <meta charset="UTF-8">
         <title>{{ page_title }}</title>
@@ -15,15 +15,22 @@
             <div class="content">
                 <div class="header-left left">
                     <span class="logo left">学习论坛</span>
-                    <form action="#" class="search right clearfix">
-                        <input type="text" class="search-text left">
+                    <form action="/search" class="search right clearfix" method="get" autocomplete="off">
+                        <input name="kw" type="text" class="search-text left">
                         <input type="submit" class="search-submit right" value="搜 索">
                     </form>
                 </div>
                 <div class="header-right right">
                     <a href="/index" class="index-link">首页</a>
                     <a href="/ask" class="ask-btn">提问</a>
-                    <a href="/register" class="user-info">登陆/注册</a>
+
+                    {% if username %}
+                        <a href="#" class="user-info">{{ username }}</a>
+                        <a href="/logout" class="user-info">退出登陆</a>
+                    {% else %}
+                        <a href="/register" class="reg-login">登陆/注册</a>
+                    {% endif %}
+
                 </div>
             </div>
         </div>
@@ -37,8 +44,9 @@
 {% block footer %}
     	<!-- 底部 -->
         <div class="footer">
-            powerby 键盘侠 K_MAN
+            powerby @ 键盘侠 K_MAN
         </div>
     </body>
-    </html>
 {% endblock footer %}
+</html>
+
